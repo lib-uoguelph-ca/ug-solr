@@ -37,7 +37,7 @@ Vagrant::Config.run do |config|
   # config.vm.share_folder "v-data", "/vagrant_data", "../data"
   #config.vm.share_folder "v-root", "/vagrant", ".",:extra => 'dmode=777,fmode=666'
   #config.vm.share_folder "v-root", "/vagrant", ".",:nfs => true
-   config.vm.share_folder("v-root", "/vagrant", ".", :extra => 'dmode=777,fmode=666', :nfs => true)
+   config.vm.share_folder("vagrant-root", "/vagrant", ".", :extra => 'dmode=777,fmode=666', :nfs => true)
   # Enable provisioning with Puppet stand alone.  Puppet manifests
   # are contained in a directory path relative to this Vagrantfile.
   # You will need to create the manifests directory and a manifest in
@@ -102,5 +102,5 @@ Vagrant::Config.run do |config|
   config.vm.network :hostonly, "33.33.33.101"
 
   #Give more memory to the VM
-  config.vm.customize ["modifyvm", :id, "--memory", 1024]
+  #config.vm.customize ["modifyvm", :id, "--memory", 1024]
 end

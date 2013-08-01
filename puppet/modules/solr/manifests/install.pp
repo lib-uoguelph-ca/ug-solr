@@ -121,4 +121,28 @@ class solr::install ($source_url, $home_dir, $solr_data_dir, $package, $cores, $
     group   => "tomcat6",
     owner   => "tomcat6",
   }
+
+  file { 'slf4j-api':
+    path => "/usr/share/tomcat6/lib/slf4j-api-1.6.6.jar",
+    ensure => link,
+    target => "/usr/share/solr/dist/solrj-lib/slf4j-api-1.6.6.jar",
+    require => File["/etc/tomcat6"],
+    notify  => Service['tomcat6'],
+  }
+
+  file { 'jcl-over-slf4j':
+    path => "/usr/share/tomcat6/lib/jcl-over-slf4j-1.6.6.jar",
+    ensure => link,
+    target => "/usr/share/solr/dist/solrj-lib/jcl-over-slf4j-1.6.6.jar",
+    require => File["/etc/tomcat6"],
+    notify  => Service['tomcat6'],
+  }
+
+  file { 'jul-to-slf4j':
+    path => "/usr/share/tomcat6/lib/jul-to-slf4j-1.6.6.jar",
+    ensure => link,
+    target => "/usr/share/solr/dist/solrj-lib/jul-to-slf4j-1.6.6.jar",
+    require => File["/etc/tomcat6"],
+    notify  => Service['tomcat6'],
+  }
 }
