@@ -58,11 +58,15 @@
   <fields>
     <field name="id" type="string" indexed="true" stored="true" required="true" multiValued="false" />
     <field name="name" type="string" indexed="true" stored="true" required="true" multiValued="false" />
-    <field name="url" type="string" indexed="true" stored="true" required="true" multiValued="false" />
+    <field name="url" type="string" indexed="true" stored="false" required="true" multiValued="false" />
     <field name="description" type="string" indexed="true" stored="true" required="false" multiValued="false" />
-    <dynamicField name="*" type="string" indexed="true" stored="true" multiValued="true" />
-    <field name="fulltext" type="text_general" indexed="true" stored="true" multiValued="true" />
+    <dynamicField name="*" type="string" indexed="true" stored="false" multiValued="true" />
+    <field name="fulltext" type="text_general" indexed="true" stored="false" multiValued="true" />
     <field name="_version_" type="long" indexed="true" stored="true" multiValued="false" />
+    <field name="ugdata_authors" type="text_general" indexed="true" stored="false" multiValued="false" />
+    <field name="ugdata_access" type="text_general" indexed="true" stored="false" multiValued="false" />
+    <field name="ugdata_funding" type="text_general" indexed="true" stored="false" multiValued="false" />
+    <field name="ugdata_geographic" type="text_general" indexed="true" stored="false" multiValued="false" />
     <copyField source="*" dest="fulltext"/>
   </fields>
   <uniqueKey>id</uniqueKey>

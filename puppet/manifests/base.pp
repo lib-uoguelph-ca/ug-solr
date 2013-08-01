@@ -7,6 +7,15 @@ class { "solr":
         tomcat_connector_port => "8983",
     }
 
+  #Copy the default config file for tomcat6
+  file { "/etc/default/tomcat6":
+    ensure => present,
+    source  => "/vagrant/tomcat6.default",
+    group   => "root",
+    owner   => "root",
+    notify  => Service["tomcat6"],
+  }
+
   #Copy the respective schema.xml file
   file { "/usr/share/solr/ug_data/conf/schema.xml":
     ensure => present,

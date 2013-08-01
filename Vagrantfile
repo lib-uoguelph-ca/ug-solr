@@ -100,4 +100,7 @@ Vagrant::Config.run do |config|
   #   chef.validation_client_name = "ORGNAME-validator"
   
   config.vm.network :hostonly, "33.33.33.101"
+
+  #Give more memory to the VM
+  config.vm.customize ["modifyvm", :id, "--memory", 1024]
 end
