@@ -3,7 +3,7 @@ class { "solr":
         home_dir => "/usr/share/solr",
         package => "solr-4.4.0",
         solr_data_dir => "/var/lib/solr/data",
-        cores => ["ug_data", "cor", "project_map_projects"],
+        cores => ["ug_data", "cor", "project_map"],
         tomcat_connector_port => "8983",
     }
 
@@ -111,34 +111,34 @@ class { "solr":
 #Project Map
 
   #Copy the respective schema.xml file
-  file { "/usr/share/solr/project_map_projects/conf/schema.xml":
+  file { "/usr/share/solr/project_map/conf/schema.xml":
     ensure => present,
-    source  => "/vagrant/project_map_projects/schema.xml",
+    source  => "/vagrant/project_map/schema.xml",
     group   => "tomcat6",
     owner   => "tomcat6",
     notify  => Service["tomcat6"],
   }
 
   #Copy the respective solrconfig.xml file
-  file { "/usr/share/solr/project_map_projects/conf/solrconfig.xml":
+  file { "/usr/share/solr/project_map/conf/solrconfig.xml":
     ensure => present,
-    source  => "/vagrant/project_map_projects/solrconfig.xml",
+    source  => "/vagrant/project_map/solrconfig.xml",
     group   => "tomcat6",
     owner   => "tomcat6",
     notify  => Service["tomcat6"],
   }
 
-  file { "/usr/share/solr/project_map_projects/conf/stopwords.txt":
+  file { "/usr/share/solr/project_map/conf/stopwords.txt":
     ensure => present,
-    source  => "/vagrant/project_map_projects/stopwords.txt",
+    source  => "/vagrant/project_map/stopwords.txt",
     group   => "tomcat6",
     owner   => "tomcat6",
     notify  => Service["tomcat6"],
   }
 
-  file { "/usr/share/solr/project_map_projects/conf/synonyms.txt":
+  file { "/usr/share/solr/project_map/conf/synonyms.txt":
     ensure => present,
-    source  => "/vagrant/project_map_projects/synonyms.txt",
+    source  => "/vagrant/project_map/synonyms.txt",
     group   => "tomcat6",
     owner   => "tomcat6",
     notify  => Service["tomcat6"],
