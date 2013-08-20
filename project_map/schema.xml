@@ -59,9 +59,11 @@
     <field name="id" type="string" indexed="true" stored="true" required="true" multiValued="false" />
     <field name="url" type="string" indexed="true" stored="true" required="true" multiValued="false" />
     <field name="type" type="string" indexed="true" stored="true" required="true" multiValued="false" />
+    <field name="themes" type="string" indexed="true" stored="true" required="false" multiValued="true" />
+    <field name="concepts" type="string" indexed="true" stored="true" required="false" multiValued="true" />
     <field name="fulltext" type="text_general" indexed="true" stored="true" multiValued="true" />
     <field name="_version_" type="long" indexed="true" stored="true" multiValued="false" />
-    <dynamicField name="*" type="text_general" indexed="true" stored="true" multiValued="true" />`
+    <dynamicField name="*" type="string" indexed="true" stored="true" multiValued="true" />`
     <copyField source="*" dest="fulltext"/>
   </fields>
   <uniqueKey>url</uniqueKey>
